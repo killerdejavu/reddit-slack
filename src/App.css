@@ -1,32 +1,101 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+    animation: App-logo-spin infinite 10s linear;
+    height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.main-app {
+    display: flex;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.app-sidebar {
+    width: 220px;
+    flex: 0 0 auto;
+    background-color: #393939;
+    height: 100vh;
+}
+
+.app-center {
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 1px;
+    height: 100vh;
+}
+
+.message-container {
+    overflow-y: auto;
+}
+
+.subreddit-container {
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 40px;
+}
+
+.subreddit-container-new {
+    margin-top: 40px;
+    text-align: center;
+    color: rgb(165,163,157);
+}
+
+.subreddit-container-new input {
+    border: none;
+    color: rgb(165,163,157);
+    background-color: #393939;
+    border-bottom: 1px solid rgb(165,163,157);
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.subreddit-container-new input:focus {
+    outline: none;
+}
+
+.subreddit {
+    padding-left: 20px;
+    color: rgb(165,163,157);
+    cursor: pointer;
+}
+
+.message-more {
+    text-align: center;
+    margin: 50px;
+    text-decoration: underline;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.message-more-getting {
+    cursor: not-allowed;
+    color: #717274;
 }

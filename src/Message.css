@@ -12,6 +12,11 @@
     flex-shrink: 0;
 }
 
+.message-ts a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
 .message-content {
     font-size: 15px;
     color: #2c2d30;
@@ -53,6 +58,11 @@
 }
 
 .preview-pic {
-    max-width: 300px;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.preview-pic iframe{
+    max-width: 500px;
     max-height: 500px;
 }

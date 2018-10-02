@@ -13,7 +13,9 @@ class Message extends Component {
             <div className="message">
                 <div className="message-ts"
                      title={date_created.format("MMMM Do YYYY, h:mm A")}>
-                    {date_created.format("hh:mm A")}
+                    <a target="_blank"
+                       rel="noreferrer noopener"
+                       href={`https://www.reddit.com${data.permalink}`}>{date_created.format("hh:mm A")}</a>
                 </div>
                 <div className="message-content">
                     <div className="message-header">

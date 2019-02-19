@@ -9,6 +9,11 @@ const default_subreddits = [
     'Iama'
 ];
 
+const PAGE_SIZE_LIMITS = {
+    NEW_PAGE: 20,
+    ADDITIONAL_DATA: 30
+};
+
 export const getDefaultData = () => dispatch => {
     let default_subreddits_from_storage = Service.getFromLocalStorage('my_subs');
     let subreddits = default_subreddits_from_storage || default_subreddits;
@@ -21,7 +26,7 @@ export const getDefaultData = () => dispatch => {
         }
     });
 
-    Service.getSubredditData(default_subreddit, 5)
+    Service.getSubredditData(default_subreddit, PAGE_SIZE_LIMITS.NEW_PAGE)
     .then((response) => {
 
         dispatch({
@@ -50,7 +55,7 @@ export const getDefaultData = () => dispatch => {
     let remaining_subreddits = subreddits.slice(1, subreddits.length);
 
     _.each(remaining_subreddits, (subreddit) => {
-        Service.getSubredditData(subreddit, 10)
+        Service.getSubredditData(subreddit, PAGE_SIZE_LIMITS.NEW_PAGE)
         .then((response) => {
             dispatch({
                 type: 'SET_SUBREDDIT_DATA',
@@ -71,7 +76,7 @@ export const getMoreData = (subreddit, after) => dispatch => {
         }
     });
 
-    Service.getSubredditData(subreddit, 10, after)
+    Service.getSubredditData(subreddit, PAGE_SIZE_LIMITS.ADDITIONAL_DATA, after)
     .then((response) => {
         dispatch({
             type: 'UPDATE_SUBREDDIT_DATA',
@@ -103,7 +108,7 @@ export const updateCurrentSubreddit = (subreddit_name) => dispatch => {
 
 export const addNewSubreddit = (subreddit) => dispatch => {
 
-    Service.getSubredditData(subreddit, 10)
+    Service.getSubredditData(subreddit, PAGE_SIZE_LIMITS.NEW_PAGE)
     .then((response) => {
         dispatch({
             type: 'SET_SUBREDDIT_DATA',

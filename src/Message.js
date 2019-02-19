@@ -63,7 +63,7 @@ class Message extends Component {
                 </video>
             );
         }
-        if (preview_src) return (<img className="preview-pic" src={preview_src} alt="alt-img"/>);
+        if (preview_src) return (<img className="preview-pic" src={_.unescape(preview_src)} alt="alt-img"/>);
 
         return null;
     }

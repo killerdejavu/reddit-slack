@@ -24,6 +24,9 @@ class Message extends Component {
                         </span>
                         <span className="message-title">
                             {_.unescape(data.title)}
+                            <a href={data.url} rel="noopener noreferrer" target="_blank">
+                                <i className="fas fa-angle-double-right fa-redirect"/>
+                            </a>
                         </span>
                     </div>
                     <div className="message-attachment">

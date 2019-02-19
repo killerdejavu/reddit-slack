@@ -5,6 +5,10 @@
     align-items: baseline;
 }
 
+.message:hover {
+    background-color: #f8f8f8;
+}
+
 .message-ts {
     color: #717274;
     font-size: 12px;
@@ -47,6 +51,8 @@
 
 .message-attachment-content {
     padding-left: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .message-attachment-selftext {
@@ -62,7 +68,7 @@
     max-height: 500px;
 }
 
-.preview-pic iframe{
+.preview-pic iframe {
     max-width: 500px;
     max-height: 500px;
 }
@@ -75,4 +81,33 @@
 .fa-redirect:hover {
     color: dodgerblue;
     cursor: pointer;
+}
+
+.emoji-bar {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.fa-emoji {
+    font-size: 11px;
+    line-height: 16px;
+    padding: 2px 3px;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.fa-emoji .fas {
+    font-size: 14px;
+}
+
+.emoji-reaction-count {
+    color: #616061;
+    padding: 0 1px 0 3px;
 }

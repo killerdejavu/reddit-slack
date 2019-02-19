@@ -19,12 +19,14 @@ class Message extends Component {
                 </div>
                 <div className="message-content">
                     <div className="message-header">
-                        <span className="message-author-name" style={{color: Util.getRandomColorAccordingToId(data.author.toLowerCase())}}>
+                        <span className="message-author-name"
+                              style={{color: Util.getRandomColorAccordingToId(data.author.toLowerCase())}}>
                             {data.author.toLowerCase()}
                         </span>
                         <span className="message-title">
                             {_.unescape(data.title)}
-                            <a href={data.url} rel="noopener noreferrer" target="_blank">
+                            <a href={data.url} rel="noopener noreferrer"
+                               target="_blank">
                                 <i className="fas fa-angle-double-right fa-redirect"/>
                             </a>
                         </span>
@@ -35,6 +37,11 @@ class Message extends Component {
                             {Message.renderSelfText(data)}
                             {Message.renderMedia(data)}
                         </div>
+                    </div>
+                    <div className="emoji-bar">
+                    <span className="fa-emoji"><i className="fas fa-caret-up"/>
+                        <span className="emoji-reaction-count">{data.ups}</span>
+                    </span>
                     </div>
                 </div>
             </div>
@@ -48,7 +55,8 @@ class Message extends Component {
 
         if (media_oembed_html) {
             return (
-                <div className="preview-pic" dangerouslySetInnerHTML={{__html: _.unescape(media_oembed_html)}}/>
+                <div className="preview-pic"
+                     dangerouslySetInnerHTML={{__html: _.unescape(media_oembed_html)}}/>
             );
         }
         if (media_src) {
@@ -58,19 +66,23 @@ class Message extends Component {
                        muted={true}
                        poster={preview_src}
                        loop={true}
-                       preload="metadata">
+                       autoPlay={true}
+                       preload="auto">
                     <source src={media_src}/>
                 </video>
             );
         }
-        if (preview_src) return (<img className="preview-pic" src={_.unescape(preview_src)} alt="alt-img"/>);
+        if (preview_src) return (
+            <img className="preview-pic" src={_.unescape(preview_src)}
+                 alt="alt-img"/>);
 
         return null;
     }
 
     static renderSelfText(data) {
         return (
-            <div className="message-attachment-selftext" dangerouslySetInnerHTML={{__html: _.unescape(data.selftext_html)}}/>
+            <div className="message-attachment-selftext"
+                 dangerouslySetInnerHTML={{__html: _.unescape(data.selftext_html)}}/>
         )
     }
 }
